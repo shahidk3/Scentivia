@@ -131,9 +131,7 @@ const Products = () => {
               </ul>
 
               <div className="card-body">
-                <Link to={"/product/" + product.id} className="btn btn-dark btn-lg m-1">
-                  Buy Now
-                </Link>
+               
                 <button
                   className="btn btn-dark btn-lg m-1"
                   onClick={() => addProduct(product)}

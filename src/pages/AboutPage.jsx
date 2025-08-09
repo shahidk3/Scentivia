@@ -1,7 +1,7 @@
 import React from 'react';
 import { Footer, Navbar } from "../components";
 import { useNavigate } from "react-router-dom";
-import './AboutPage.css'; // for hover zoom effect
+import './AboutPage.css';
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -9,17 +9,18 @@ const AboutPage = () => {
   return (
     <>
       <Navbar />
+
       <div className="container my-5 py-5">
         {/* First Section */}
-        <div className="row align-items-center mb-5">
-          <div className="col-md-6">
+        <div className="row align-items-center mb-5 flex-column flex-md-row">
+          <div className="col-md-6 mb-4 mb-md-0">
             <img
               src="/assets/about1.png"
               alt="Perfume Collection"
-              className="img-fluid rounded shadow hover-zoom"
+              className="img-fluid rounded shadow hover-zoom w-100"
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 text-center text-md-start">
             <h2 className="fw-bold mb-3">Discover the Essence of Scentivià</h2>
             <p className="lead">
               More than just fragrance, it's a crafted experience. Each scent is designed to
@@ -28,27 +29,30 @@ const AboutPage = () => {
           </div>
         </div>
 
-        {/* Second Section */}
-        <div className="row align-items-center mb-5">
-          <div className="col-md-6 order-md-2">
-            <img
-              src="/assets/about2.png"
-              alt="Perfume for Occasions"
-              className="img-fluid rounded shadow hover-zoom"
-            />
-          </div>
-          <div className="col-md-6 order-md-1">
+        {/* Second Section - Fullscreen with blur */}
+        <div
+          className="about-fullscreen-section d-flex flex-column justify-content-center align-items-center text-center text-white"
+          style={{
+            backgroundImage: "url('/assets/about2.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "70vh",
+            position: "relative"
+          }}
+        >
+          <div className="overlay-blur"></div>
+          <div className="content position-relative">
             <h2 className="fw-bold mb-3">Perfumes for Every Occasion</h2>
-            <p className="lead">
+            <p className="lead mb-4">
               From first dates to wild nights, summer brunches to luxe evenings,
               Scentivià offers curated selections for every moment that matters.
             </p>
-          </div>
-        </div>
-
-        <div className="container my-5 mt-5">
-          <div className="row text-center">
-            {/* feature cards */}
+            <button
+              onClick={() => navigate("/products")}
+              className="btn btn-light px-4 py-2 fw-bold"
+            >
+              Shop Now
+            </button>
           </div>
         </div>
 
@@ -58,7 +62,7 @@ const AboutPage = () => {
             src="/assets/about3.png"
             alt="Custom Perfume Blend"
             className="img-fluid rounded shadow hover-zoom mb-4"
-            style={{ maxWidth: "500px" }}
+            style={{ maxWidth: "500px", width: "100%" }}
           />
           <h3 className="fw-bold mb-3">Craft Your Signature Scent</h3>
           <p className="lead">Your fragrance. Your story. Created just for you.</p>
@@ -70,22 +74,10 @@ const AboutPage = () => {
           </button>
         </div>
 
-        <div className="container my-5 mt-5">
-          <div className="row text-center">
-            {/* feature cards */}
-          </div>
-        </div>
-
-        <div className="container my-5 mt-5">
-          <div className="row text-center">
-            {/* feature cards */}
-          </div>
-        </div>
-
         {/* Features Section */}
         <div className="container my-5">
-          <div className="row text-center">
-            <div className="col-md-3">
+          <div className="row text-center gy-4">
+            <div className="col-6 col-md-3">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/609/609361.png"
                 alt="Easy Returns"
@@ -96,7 +88,7 @@ const AboutPage = () => {
                 Free returns with easy exchanges and no stress. *Only on damaged products.
               </p>
             </div>
-            <div className="col-md-3">
+            <div className="col-6 col-md-3">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2165/2165703.png"
                 alt="Free Shipping"
@@ -107,7 +99,7 @@ const AboutPage = () => {
                 Enjoy fast, free shipping on all orders, no minimum, no hidden fees Pan India.
               </p>
             </div>
-            <div className="col-md-3">
+            <div className="col-6 col-md-3">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/1034/1034798.png"
                 alt="Secure Payment"
@@ -118,7 +110,7 @@ const AboutPage = () => {
                 Your information is protected with encrypted checkout and trusted payment methods.
               </p>
             </div>
-            <div className="col-md-3">
+            <div className="col-6 col-md-3">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
                 alt="Quality Assured"
@@ -132,6 +124,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );
